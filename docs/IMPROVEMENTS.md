@@ -12,12 +12,6 @@ visibility collection then picks the site up. The property ID lives in
 
 ## Block B — Tied to the rest of the house
 
-### §JP7 Both ways with PhotoBoost
-
-Here, PhotoBoost has its card and its page. There, the header or footer of PhotoBoost's
-site gets the Japode mark linking to the root. The change on PhotoBoost's side is a task
-in its own roadmap (prefix PB), filed there only; Alexandre decides when it lands.
-
 ## Block C — Everything under japode.com
 
 ### §JP11 The japode.com domain

@@ -11,7 +11,7 @@
 
 ## Block B — Tied to the rest of the house
 
-- ✅ **JP7 (storefront half)** **PhotoBoost's site and the brand's site do not link to each other** — The storefront links PhotoBoost from its card and its page; the way back is filed in PhotoBoost's roadmap as PB49.
+- ✅ **JP7** **PhotoBoost's site and the brand's site do not link to each other** — Both ways now: the storefront links PhotoBoost, and PhotoBoost's nav chip and footer link back to the Japode storefront at the origin root (PB49).
 - ✅ **JP8** **the site does not show the Japode Ads banner the way the other house sites do** — Every page carries a footer-format Japode Ads slot after the content, filled by the ads.japode.com loader; the slot stores nothing, so it needs no consent.
 - ✅ **JP9** **Japode's catalogue exists only inside the HTML, so no other site can read it** — The build writes `products.json` from `src/data/products.ts`, with each product's name, sentence, status and absolute site, mark and page addresses.
 - ✅ **JP10** **the site does not say Japode's products are built on Viglet** — Every page's footer carries the design system's SiteSponsor from `sponsor.json`: built on Viglet, naming Viglet Turing and Shio, with trabalharei on Turing and Dumont.

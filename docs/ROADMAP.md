@@ -4,8 +4,6 @@
 
 ## Block B — Tied to the rest of the house
 
-- ⏳ **JP7** (deps: JP3 ✅, PB49 in photo-boost) **PhotoBoost's site and the brand's site do not link to each other** — PhotoBoost's site links back to the storefront once PB49 lands in its repository. → §JP7
-
 ## Block C — Everything under japode.com
 
 - 📋 **JP12** (deps: JP11 ⏸) **PhotoBoost's site still declares japode.github.io as its origin** — Canonical links and a sitemap on the old address split indexing across two domains. → §JP12
@@ -16,12 +14,6 @@
 - **GA4 and Search Console report japode.com to the visibility collection**
   SITE.analytics holds the GA4 id, verify.mjs passes with it set, and the visibility
   service account reads both the GA4 property and sc-domain:japode.com.
-
-## Done when — JP7
-
-- **PhotoBoost's site links back to the Japode storefront** The built /photo-boost/
-  pages carry a link to the origin root with the Japode name, from PB49 in PhotoBoost's
-  repository.
 
 ## Non-goals
 
