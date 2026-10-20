@@ -19,3 +19,4 @@
 ## Block C — Everything under japode.com
 
 - ✅ **JP13** **nothing stops the site from taking the paths the verticals' engine will use** — verify.mjs fails the build if anything lands under `dist/v/` or a route under `/v/`, and if robots.txt blocks the path the verticals' engine will use.
+- ✅ **JP11** **japode.com does not point at the organization's GitHub Pages site** — japode.com points at the organization's Pages site, registered as its custom domain; https://japode.com and japode.com/photo-boost/ answer, and www redirects to the apex.
