@@ -1,0 +1,37 @@
+{
+  "$comment": [
+    "The sponsor declaration for the Japode storefront (JP10): the copy and the product",
+    "entries are alegauss.github.io/sponsor.json's, which is the canonical one; the logos",
+    "are copies under public/viglet/. Rendered at build by the design system's SiteSponsor",
+    "in the footer, so the block is in the prerendered HTML: a sponsor injected after load",
+    "is one a crawler or an LLM never reads.",
+    "",
+    "LINK POLICY, as in alegauss: no GitHub URLs. Every Viglet reference points at the",
+    "project site or its docs."
+  ],
+  "sponsor": {
+    "name": "Viglet",
+    "url": "https://www.viglet.org",
+    "logo": "viglet/viglet-logo.png",
+    "label": "Built on",
+    "summary": "Open source search and content tools for organisations with a lot to publish — run on your own servers, with no per-user licence.",
+    "siteLabel": "viglet.org"
+  },
+  "products": [
+    {
+      "id": "turing",
+      "name": "Viglet Turing",
+      "url": "https://turing.viglet.org",
+      "logo": "viglet/turing-logo.png",
+      "inline": "so visitors find what they came for, with AI answers drawn only from your own content"
+    },
+    {
+      "id": "shio",
+      "name": "Viglet Shio",
+      "url": "https://shio.viglet.org",
+      "logo": "viglet/shio-logo.png",
+      "inline": "so a new page goes live the same day, reviewed and approved by your own team"
+    }
+  ],
+  "inlineProducts": ["turing", "shio"]
+}

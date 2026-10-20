@@ -123,6 +123,16 @@ for (const p of PRODUCTS) {
   check("JP9", [x.site, x.logo, x.page].every((u) => /^https:\/\//.test(u)), `products.json gives ${p.name} a relative address`)
 }
 
+// JP10 — the sponsor block is in the served HTML of every page, rendered by the design
+// system's component, naming Viglet Turing in full and linking no GitHub URL.
+for (const r of ROUTES) {
+  const text = page(r.path)
+  check("JP10", text.includes("vg-site-sponsor") && text.includes("Viglet Turing") && text.includes("Viglet Shio"), `${r.path} lacks the sponsor block`)
+}
+const sponsorBlock = home.slice(home.indexOf("vg-site-sponsor"))
+check("JP10", !/href="https:\/\/github\.com/.test(sponsorBlock.slice(0, sponsorBlock.indexOf("</footer>"))), "the sponsor block links GitHub")
+for (const logo of ["viglet/viglet-logo.png", "viglet/turing-logo.png", "viglet/shio-logo.png"]) check("JP10", existsSync(join(DIST, logo)), `${logo} is not served`)
+
 // JP8 — every page carries one Japode Ads slot outside <main>, the loader that fills it,
 // and a slot that stores nothing, so the banner needs no consent.
 for (const r of ROUTES) {

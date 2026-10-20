@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
-import { SiteButton, SiteFooter, SiteNav } from "@viglet/viglet-design-system/site"
+import { SiteButton, SiteFooter, SiteNav, SiteSponsor, type SponsorDeclaration } from "@viglet/viglet-design-system/site"
+import sponsor from "../../sponsor.json"
 import { SITE } from "../data/site.ts"
 import { Island } from "../islands.tsx"
 
@@ -31,6 +32,14 @@ export function Layout({ children }: { children: ReactNode }) {
           <aside className="vg-site-wrap pb-10" aria-label="From the Japode family">
             <div data-japode-ads="" data-ad-format="footer" data-ad-slot="storefront-footer" data-ad-memory="off" />
           </aside>
+        }
+        sponsor={
+          <SiteSponsor
+            declaration={sponsor as SponsorDeclaration}
+            assetBase="/"
+            moreLabel="More at"
+            note="trabalharei's search runs on Viglet Turing, fed by Viglet Dumont."
+          />
         }
         disclaimer={
           <>

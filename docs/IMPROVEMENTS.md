@@ -18,13 +18,6 @@ Here, PhotoBoost has its card and its page. There, the header or footer of Photo
 site gets the Japode mark linking to the root. The change on PhotoBoost's side is a task
 in its own roadmap (prefix PB), filed there only; Alexandre decides when it lands.
 
-### §JP10 The sponsor block
-
-A `sponsor.json` and the design system's `SiteSponsor` component, like AG7 in alegauss:
-"built with Viglet Turing and Shio", with the names as decided (Viglet Turing on first
-mention). trabalharei runs on Turing and Dumont; the verticals' engine will run on
-Turing and Shio.
-
 ## Block C — Everything under japode.com
 
 ### §JP11 The japode.com domain
