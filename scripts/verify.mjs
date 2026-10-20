@@ -107,6 +107,11 @@ for (const s of app.localSites()) {
 }
 for (const p of PRODUCTS) check("JP5", llms.includes(p.blurb), `llms.txt lacks ${p.name}`)
 
+// JP6 — no request to googletagmanager.com leaves a page before consent: the tag is in
+// no built HTML, and the footer offers the settings only when there is a tag to consent to.
+for (const f of pages) check("JP6", !readFileSync(f, "utf8").includes("googletagmanager"), `${relative(DIST, f)} loads the tag before consent`)
+check("JP6", home.includes("Analytics settings") === Boolean(SITE.analytics), SITE.analytics ? "the footer cannot reopen the consent banner" : "the footer offers analytics settings with no analytics")
+
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.
 const sources = walk(join(REPO, "src")).filter((f) => /\.(css|tsx)$/.test(f) && f !== join(REPO, "src", "tone.css"))

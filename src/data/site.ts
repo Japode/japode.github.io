@@ -10,6 +10,11 @@ export const SITE = {
     "Japode is a family of small products by Alexandre Oliveira: a photo app that runs on your own Windows PC, web services for developers and job seekers, and the house ad network that links them.",
   github: "https://github.com/Japode",
   author: "Alexandre Oliveira",
+  /**
+   * GA4 measurement id, loaded only after the visitor allows it (JP6). Null until the
+   * property exists: then no banner is shown and nothing is loaded.
+   */
+  analytics: null as string | null,
   /** The theme choice is stored under this key, as every product site names its own. */
   themeKey: "japode-theme",
 } as const

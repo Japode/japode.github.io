@@ -2,8 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-- 📋 **JP6** (deps: JP2 ✅) **visits to the site and the searches that lead to it are not measured** — Without numbers, the visibility review cannot tell whether the storefront sends anyone to the products. → §JP6
-
 ## Block B — Tied to the rest of the house
 
 - 📋 **JP7** (deps: JP3 ✅) **PhotoBoost's site and the brand's site do not link to each other** — Someone arriving through PhotoBoost should find the other products, and someone arriving through the brand should find PhotoBoost. → §JP7
@@ -17,6 +15,12 @@
 - 📋 **JP12** (deps: JP11) **PhotoBoost's site still declares japode.github.io as its origin** — Canonical links and a sitemap on the old address split indexing across two domains. → §JP12
 - 📋 **JP13** (deps: JP2 ✅) **nothing stops the site from taking the paths the verticals' engine will use** — The strategy reserves japode.com/v/<id> for dated answers; a route there now would break those links later. → §JP13
 - 💭 **JP14** (deps: JP3 ✅, 08 Editais live) **once the first vertical (Editais) ships, the site has nowhere to present it** — The storefront should show the engine when a real vertical exists, and never before. → §JP14
+
+## Done when — JP6
+
+- **GA4 and Search Console report japode.com to the visibility collection**
+  SITE.analytics holds the GA4 id, verify.mjs passes with it set, and the visibility
+  service account reads both the GA4 property and sc-domain:japode.com.
 
 ## Non-goals
 

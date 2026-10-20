@@ -24,7 +24,11 @@ export function Layout({ children }: { children: ReactNode }) {
       <SiteFooter
         brand={{ href: "/", name: SITE.name, logo: "/logo.svg" }}
         links={FOOT}
-        disclaimer={<>© 2026 {SITE.author}.</>}
+        disclaimer={
+          <>
+            © 2026 {SITE.author}. {SITE.analytics ? <Island name="consent-settings" /> : null}
+          </>
+        }
       />
     </>
   )
