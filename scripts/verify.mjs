@@ -12,7 +12,7 @@ import * as app from "../dist-server/entry-server.js"
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const DIST = join(REPO, "dist")
-const { SITE, ROUTES } = app
+const { SITE, ROUTES, PRODUCTS, STATUS_LABEL } = app
 const failures = []
 const check = (task, ok, what) => {
   if (!ok) failures.push(`${task}: ${what}`)
@@ -57,6 +57,19 @@ check("JP2", /npm run build/.test(workflow), "deploy.yml does not run npm run bu
 check("JP2", existsSync(join(DIST, ".nojekyll")), ".nojekyll is not served")
 check("JP2", existsSync(join(DIST, "CNAME")) && read("CNAME").trim() === new URL(SITE.origin).host, `CNAME does not name ${new URL(SITE.origin).host}`)
 for (const project of ["photo-boost"]) check("JP2", !existsSync(join(DIST, project)), `dist/${project}/ would shadow that project's own site`)
+
+// JP3 — the home page HTML lists every product with its sentence, its status and its
+// mark; a product offline gets no link to an address that answers nothing, and none
+// gets a download button before it ships.
+for (const p of PRODUCTS) {
+  check("JP3", home.includes(`id="${p.id}"`), `the home page lacks ${p.name}`)
+  check("JP3", home.includes(html(p.blurb)), `the home page lacks ${p.name}'s sentence`)
+  check("JP3", home.includes(`data-status="${p.status}">${STATUS_LABEL[p.status]}<`), `the home page does not state ${p.name}'s status`)
+  check("JP3", existsSync(join(DIST, p.logo.replace(/^\//, ""))), `${p.name}'s mark ${p.logo} is not served`)
+  const links = home.includes(`href="${html(p.site)}"`)
+  check("JP3", p.status === "offline" ? !links : links, p.status === "offline" ? `${p.name} is offline and still linked` : `the home page does not link ${p.name}`)
+}
+check("JP3", !/>\s*Download\b/i.test(home), "the home page offers a download")
 
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.

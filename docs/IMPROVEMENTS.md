@@ -2,16 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-### §JP3 The catalogue in code
-
-`src/data/products.ts` is the list, like alegauss's `projects.ts`: id, name, one
-sentence on what the product does, address, logo and status. It holds PhotoBoost (AI
-photo enhancement on Windows, local and account-free, in development), skillgist (share
-Claude Code skills by URL, skillgist.com), trabalharei (job search in Brazil,
-trabalharei.com.br) and Japode Ads (the house banner network, ads.japode.com). Status is
-stated as it is: a product in development or offline gets no download button. The home
-page reads this list at build.
-
 ### §JP4 A page per product
 
 `/products/<id>/` for every catalogue entry, with `SoftwareApplication` JSON-LD (or

@@ -8,6 +8,50 @@
    is declared here (tone.css holds the ground). */
 
 @layer components {
+  .jp-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+    border: 1px solid var(--vg-border);
+    border-radius: var(--vg-radius-panel);
+    background: linear-gradient(180deg, var(--vg-card), var(--vg-muted));
+  }
+
+  .jp-tile {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--vg-radius-control);
+  }
+
+  .jp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--vg-muted-foreground);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .jp-meta > * + *::before {
+    content: "·";
+    margin: 0 7px;
+    opacity: 0.6;
+  }
+  .jp-meta [data-status="live"] {
+    color: var(--vg-brand);
+    font-weight: 700;
+  }
+
+  .jp-link {
+    margin-top: auto;
+    color: var(--vg-brand);
+    font-weight: 600;
+  }
+  .jp-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .jp-skip {
     position: absolute;
     left: -9999px;

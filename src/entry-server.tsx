@@ -5,6 +5,7 @@ import { absolute } from "./data/site.ts"
 
 export { ROUTES } from "./routes.tsx"
 export { SITE } from "./data/site.ts"
+export { PRODUCTS, STATUS_LABEL } from "./data/products.ts"
 
 export const render = (path: string) => renderToString(<Layout>{routeFor(path).render()}</Layout>)
 export const canonicalUrl = (path: string) => absolute(path)
