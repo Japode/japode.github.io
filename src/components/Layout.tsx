@@ -29,7 +29,7 @@ export function Layout({ children }: { children: ReactNode }) {
           // the Japode Ads slot (JP8): after the content and outside the chrome. The loader
           // sets no cookie, and memory "off" keeps it from storing its rotation either, so
           // there is nothing to consent to. index.html loads the script.
-          <aside className="vg-site-wrap pb-10" aria-label="From the Japode family">
+          <aside className="vg-site-wrap pb-10!"aria-label="From the Japode family">
             <div data-japode-ads="" data-ad-format="footer" data-ad-slot="storefront-footer" data-ad-memory="off" />
           </aside>
         }

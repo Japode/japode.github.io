@@ -21,7 +21,7 @@ export function Home() {
           </>
         }
       />
-      <section className="vg-site-wrap pb-16" id="products">
+      <section className="vg-site-wrap pb-20!" id="products">
         <SiteSectionHead eyebrow="Products" title="Everything Japode makes">
           What each product does, where it lives and how far along it is.
         </SiteSectionHead>
@@ -31,7 +31,7 @@ export function Home() {
           ))}
         </div>
       </section>
-      <section className="vg-site-wrap pb-20">
+      <section className="vg-site-wrap pb-20!">
         <SiteSectionHead eyebrow="What Japode is" title="One brand, one address">
           Each Japode product keeps its own site. This one is where they meet: what each product does, where it lives and how far along it is, in
           pages a search engine or an assistant can read without running any script.
