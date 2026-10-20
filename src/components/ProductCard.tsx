@@ -1,4 +1,4 @@
-import { STATUS_LABEL, siteLabel, type Product } from "../data/products.ts"
+import { STATUS_LABEL, productPath, siteLabel, type Product } from "../data/products.ts"
 
 /** One catalogue entry: the mark, what it is, what it does, how far along, and where. */
 export function ProductCard({ product: p }: { product: Product }) {
@@ -7,7 +7,11 @@ export function ProductCard({ product: p }: { product: Product }) {
       <div className="flex items-center gap-3">
         <img className="jp-tile" src={p.logo} alt="" width={44} height={44} />
         <div>
-          <h3 className="m-0 text-lg font-bold">{p.name}</h3>
+          <h3 className="m-0 text-lg font-bold">
+            <a className="hover:underline underline-offset-3" href={productPath(p)}>
+              {p.name}
+            </a>
+          </h3>
           <p className="jp-meta m-0">
             <span>{p.kind}</span>
             <span data-status={p.status}>{STATUS_LABEL[p.status]}</span>

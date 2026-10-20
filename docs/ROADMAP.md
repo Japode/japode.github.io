@@ -2,7 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-- 📋 **JP4** (deps: JP3 ✅) **no product has a page of its own with structured data a search engine understands** — A page per product with JSON-LD is what lets search and assistants cite each one by name. → §JP4
 - 📋 **JP5** (deps: JP1 ✅) **the site writes no sitemap, robots.txt, llms.txt or per-page OG card** — Those are the files search engines and assistants read first, and the design system already writes them. → §JP5
 - 📋 **JP6** (deps: JP2 ✅) **visits to the site and the searches that lead to it are not measured** — Without numbers, the visibility review cannot tell whether the storefront sends anyone to the products. → §JP6
 

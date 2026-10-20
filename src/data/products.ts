@@ -19,6 +19,11 @@ export interface Product {
   /** The product's mark, under public/. */
   logo: string
   status: Status
+  /**
+   * What the product page's JSON-LD calls it (JP4): an app someone installs is a
+   * SoftwareApplication, with the system it runs on; a web service is a WebSite.
+   */
+  schema: { type: "SoftwareApplication"; os: string; category: string } | { type: "WebSite" }
 }
 
 export const STATUS_LABEL: Record<Status, string> = {
@@ -36,6 +41,7 @@ export const PRODUCTS: Product[] = [
     site: "/photo-boost/",
     logo: "/products/photo-boost.svg",
     status: "in-development",
+    schema: { type: "SoftwareApplication", os: "Windows", category: "MultimediaApplication" },
   },
   {
     id: "skillgist",
@@ -45,6 +51,7 @@ export const PRODUCTS: Product[] = [
     site: "https://skillgist.com/",
     logo: "/products/skillgist.svg",
     status: "live",
+    schema: { type: "WebSite" },
   },
   {
     id: "trabalharei",
@@ -54,6 +61,7 @@ export const PRODUCTS: Product[] = [
     site: "https://trabalharei.com.br/",
     logo: "/products/trabalharei.svg",
     status: "offline",
+    schema: { type: "WebSite" },
   },
   {
     id: "japode-ads",
@@ -63,8 +71,12 @@ export const PRODUCTS: Product[] = [
     site: "https://ads.japode.com/",
     logo: "/products/japode-ads.svg",
     status: "live",
+    schema: { type: "WebSite" },
   },
 ]
 
 /** The address as a reader would type it: host and path, without the scheme. */
 export const siteLabel = (p: Product) => p.site.replace(/^https?:\/\//, "").replace(/\/$/, "")
+
+/** The product's page on this site (JP4). */
+export const productPath = (p: Product) => `/products/${p.id}/`

@@ -1,9 +1,12 @@
 import type { ReactNode } from "react"
 import { SITE } from "./data/site.ts"
+import { PRODUCTS, productPath } from "./data/products.ts"
 import { Home } from "./pages/Home.tsx"
+import { Product } from "./pages/Product.tsx"
 import { NotFound } from "./pages/NotFound.tsx"
 
-/* The route table: every page the site serves. prerender.mjs writes one page per row. */
+/* The route table: every page the site serves, built from the catalogue, so adding a
+   product adds its page. prerender.mjs writes one page per row. */
 
 export interface Route {
   path: string
@@ -19,6 +22,12 @@ export const ROUTES: Route[] = [
     description: SITE.description,
     render: () => <Home />,
   },
+  ...PRODUCTS.map<Route>((p) => ({
+    path: productPath(p),
+    title: `${p.name}: ${p.kind} — Japode`,
+    description: p.blurb,
+    render: () => <Product product={p} />,
+  })),
   {
     path: "/404/",
     title: "Not found — Japode",

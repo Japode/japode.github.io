@@ -2,13 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-### §JP4 A page per product
-
-`/products/<id>/` for every catalogue entry, with `SoftwareApplication` JSON-LD (or
-`WebSite` for the web services), like AG5 in alegauss. The page summarizes the product
-and links to its own site; it does not copy that site's content. PhotoBoost points to
-`/photo-boost/`, where its site lives.
-
 ### §JP5 The files for machines
 
 Like AG6 in alegauss: the design system's `prerenderSite` writes, for each route, the

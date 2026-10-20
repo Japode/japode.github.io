@@ -71,6 +71,21 @@ for (const p of PRODUCTS) {
 }
 check("JP3", !/>\s*Download\b/i.test(home), "the home page offers a download")
 
+// JP4 — every product has a page, linked from the home page, carrying JSON-LD of the
+// kind its catalogue entry declares, and linking out to the product's own site.
+for (const p of PRODUCTS) {
+  const path = app.productPath(p)
+  const file = join(app.outputDir(path), "index.html")
+  check("JP4", existsSync(join(DIST, file)), `${path} is missing`)
+  if (!existsSync(join(DIST, file))) continue
+  const text = page(path)
+  check("JP4", home.includes(`href="${path}"`), `the home page does not link ${path}`)
+  const ld = [...text.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]))
+  check("JP4", ld.some((x) => x["@type"] === p.schema.type && x.name === p.name), `${path} has no ${p.schema.type} JSON-LD naming ${p.name}`)
+  const links = text.includes(`href="${html(p.site)}"`)
+  check("JP4", p.status === "offline" ? !links : links, p.status === "offline" ? `${path} links an offline address` : `${path} does not link ${p.site}`)
+}
+
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.
 const sources = walk(join(REPO, "src")).filter((f) => /\.(css|tsx)$/.test(f) && f !== join(REPO, "src", "tone.css"))
