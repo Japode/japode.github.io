@@ -17,3 +17,5 @@
 - ✅ **JP10** **the site does not say Japode's products are built on Viglet** — Every page's footer carries the design system's SiteSponsor from `sponsor.json`: built on Viglet, naming Viglet Turing and Shio, with trabalharei on Turing and Dumont.
 
 ## Block C — Everything under japode.com
+
+- ✅ **JP13** **nothing stops the site from taking the paths the verticals' engine will use** — verify.mjs fails the build if anything lands under `dist/v/` or a route under `/v/`, and if robots.txt blocks the path the verticals' engine will use.

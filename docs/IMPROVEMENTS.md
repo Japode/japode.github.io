@@ -35,13 +35,6 @@ does not change.
 `https://japode.com`; `BASE` stays `/photo-boost/`. It is a change in PhotoBoost's
 repository, filed there under the PB prefix.
 
-### §JP13 The paths reserved for the engine
-
-`SUMMARY.md` in the strategy repository plans permalinks at `https://japode.com/v/<id>`.
-`verify.mjs` refuses any file built under `dist/v/`, and robots.txt does not block the
-path. When the engine exists, the domain split is decided then: a proxy, a subdomain or
-another deploy. This keeps to the non-goal "Pages for verticals that do not exist yet".
-
 ### §JP14 The engine in the storefront
 
 The strategy puts Editais (08) first among the verticals, with Tools (19) beside it.

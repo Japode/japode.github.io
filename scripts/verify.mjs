@@ -144,6 +144,13 @@ for (const r of ROUTES) {
   check("JP8", text.includes('<script src="https://ads.japode.com/v1/ads.js" async></script>'), `${r.path} does not load the Japode Ads loader`)
 }
 
+// JP13 — japode.com/v/<id> is reserved for the verticals' dated answers (strategy
+// repository, SUMMARY.md): nothing is built there and robots.txt does not block it, so
+// the engine finds the path free and crawlable when it exists.
+check("JP13", !existsSync(join(DIST, "v")), "dist/v/ exists, a path reserved for the verticals' engine")
+check("JP13", !ROUTES.some((r) => r.path.startsWith("/v/")), "a route sits under /v/")
+check("JP13", !/^Disallow:\s*\/v\b/im.test(read("robots.txt")), "robots.txt blocks /v/")
+
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.
 const sources = walk(join(REPO, "src")).filter((f) => /\.(css|tsx)$/.test(f) && f !== join(REPO, "src", "tone.css"))
