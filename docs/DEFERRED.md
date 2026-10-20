@@ -7,3 +7,5 @@
 ## Block B — Tied to the rest of the house
 
 ## Block C — Everything under japode.com
+
+- ⏸ **JP15** (deps: JP11 ✅) **japode.com still answers over plain http: the Pages certificate is not issued, so HTTPS cannot be enforced** — set aside (Waits on www set DNS-only in Cloudflare and the certificate issuing.): The http address serves pages instead of redirecting to https. → §JP15

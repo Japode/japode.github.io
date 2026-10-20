@@ -7,7 +7,6 @@
 ## Block C — Everything under japode.com
 
 - 💭 **JP14** (deps: JP3 ✅, 08 Editais live) **once the first vertical (Editais) ships, the site has nowhere to present it** — The storefront should show the engine when a real vertical exists, and never before. → §JP14
-- 📋 **JP15** (deps: JP11 ✅) **japode.com still answers over plain http: the Pages certificate is not issued, so HTTPS cannot be enforced** — A visitor or crawler on the http address gets an unencrypted page instead of a redirect to the canonical https one. → §JP15
 
 ## Done when — JP6
 
