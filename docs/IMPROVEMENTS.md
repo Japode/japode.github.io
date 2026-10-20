@@ -14,12 +14,6 @@ visibility collection then picks the site up. The property ID lives in
 
 ## Block C — Everything under japode.com
 
-### §JP12 PhotoBoost on the new domain
-
-`SITE_ORIGIN` in PhotoBoost's `site/vite.config.ts` and `site/src/routes.ts` becomes
-`https://japode.com`; `BASE` stays `/photo-boost/`. It is a change in PhotoBoost's
-repository, filed there under the PB prefix.
-
 ### §JP14 The engine in the storefront
 
 The strategy puts Editais (08) first among the verticals, with Tools (19) beside it.
