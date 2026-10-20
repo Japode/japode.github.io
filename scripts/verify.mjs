@@ -112,6 +112,17 @@ for (const p of PRODUCTS) check("JP5", llms.includes(p.blurb), `llms.txt lacks $
 for (const f of pages) check("JP6", !readFileSync(f, "utf8").includes("googletagmanager"), `${relative(DIST, f)} loads the tag before consent`)
 check("JP6", home.includes("Analytics settings") === Boolean(SITE.analytics), SITE.analytics ? "the footer cannot reopen the consent banner" : "the footer offers analytics settings with no analytics")
 
+// JP9 — products.json carries every catalogue entry, in the catalogue's order and words,
+// with absolute addresses another origin can follow.
+const published = JSON.parse(read("products.json"))
+check("JP9", published.map((x) => x.id).join() === PRODUCTS.map((p) => p.id).join(), "products.json disagrees with the catalogue on which products exist")
+for (const p of PRODUCTS) {
+  const x = published.find((y) => y.id === p.id)
+  if (!x) continue
+  check("JP9", x.name === p.name && x.blurb === p.blurb && x.status === p.status, `products.json disagrees with the catalogue on ${p.name}`)
+  check("JP9", [x.site, x.logo, x.page].every((u) => /^https:\/\//.test(u)), `products.json gives ${p.name} a relative address`)
+}
+
 // JP8 — every page carries one Japode Ads slot outside <main>, the loader that fills it,
 // and a slot that stores nothing, so the banner needs no consent.
 for (const r of ROUTES) {

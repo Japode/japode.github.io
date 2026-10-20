@@ -18,11 +18,6 @@ Here, PhotoBoost has its card and its page. There, the header or footer of Photo
 site gets the Japode mark linking to the root. The change on PhotoBoost's side is a task
 in its own roadmap (prefix PB), filed there only; Alexandre decides when it lands.
 
-### §JP9 The catalogue as JSON
-
-The build writes `dist/products.json` from `src/data/products.ts`, like alegauss's
-`projects.json`. Nobody edits the JSON by hand: it is build output.
-
 ### §JP10 The sponsor block
 
 A `sponsor.json` and the design system's `SiteSponsor` component, like AG7 in alegauss:

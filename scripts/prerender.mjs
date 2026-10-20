@@ -107,6 +107,21 @@ writeFileSync(
 
 writeFileSync(join(DIST, "llms.txt"), app.llmsTxt())
 
+// products.json: the catalogue for other sites to read (JP9), generated from
+// src/data/products.ts and never edited by hand. Paths become absolute, since the
+// reader is on another origin.
+const published = app.PRODUCTS.map((p) => ({
+  id: p.id,
+  name: p.name,
+  kind: p.kind,
+  blurb: p.blurb,
+  status: p.status,
+  site: /^https?:/.test(p.site) ? p.site : abs(p.site),
+  logo: abs(p.logo),
+  page: abs(app.productPath(p)),
+}))
+writeFileSync(join(DIST, "products.json"), JSON.stringify(published, null, 2) + "\n")
+
 // The PNG icons a manifest and an iOS home screen ask for, from the one SVG.
 const logo = readFileSync(join(REPO, "public", "logo.svg"), "utf8")
 for (const [file, size] of [["icon-192.png", 192], ["icon-512.png", 512], ["apple-touch-icon.png", 180]]) {

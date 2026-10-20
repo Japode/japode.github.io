@@ -5,7 +5,6 @@
 ## Block B — Tied to the rest of the house
 
 - ⏳ **JP7** (deps: JP3 ✅, PB49 in photo-boost) **PhotoBoost's site and the brand's site do not link to each other** — PhotoBoost's site links back to the storefront once PB49 lands in its repository. → §JP7
-- 📋 **JP9** (deps: JP3 ✅) **Japode's catalogue exists only inside the HTML, so no other site can read it** — A public `products.json` lets alegauss, Japode Ads and the products' footers list the family without copying it. → §JP9
 - 📋 **JP10** (deps: JP1 ✅) **the site does not say Japode's products are built on Viglet** — Showing Viglet as the foundation ties the two brands together and sends visitors to Turing, the long-term bet. → §JP10
 
 ## Block C — Everything under japode.com
