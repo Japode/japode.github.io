@@ -12,5 +12,6 @@
 ## Block B — Tied to the rest of the house
 
 - ✅ **JP7 (storefront half)** **PhotoBoost's site and the brand's site do not link to each other** — The storefront links PhotoBoost from its card and its page; the way back is filed in PhotoBoost's roadmap as PB49.
+- ✅ **JP8** **the site does not show the Japode Ads banner the way the other house sites do** — Every page carries a footer-format Japode Ads slot after the content, filled by the ads.japode.com loader; the slot stores nothing, so it needs no consent.
 
 ## Block C — Everything under japode.com

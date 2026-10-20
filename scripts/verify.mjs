@@ -112,6 +112,17 @@ for (const p of PRODUCTS) check("JP5", llms.includes(p.blurb), `llms.txt lacks $
 for (const f of pages) check("JP6", !readFileSync(f, "utf8").includes("googletagmanager"), `${relative(DIST, f)} loads the tag before consent`)
 check("JP6", home.includes("Analytics settings") === Boolean(SITE.analytics), SITE.analytics ? "the footer cannot reopen the consent banner" : "the footer offers analytics settings with no analytics")
 
+// JP8 — every page carries one Japode Ads slot outside <main>, the loader that fills it,
+// and a slot that stores nothing, so the banner needs no consent.
+for (const r of ROUTES) {
+  const text = page(r.path)
+  const slots = text.match(/<div data-japode-ads=""[^>]*>/g) ?? []
+  check("JP8", slots.length === 1, `${r.path} has ${slots.length} Japode Ads slots`)
+  check("JP8", slots.every((s) => s.includes('data-ad-memory="off"')), `${r.path}'s slot stores its rotation in the visitor's browser`)
+  check("JP8", text.indexOf("data-japode-ads") > text.indexOf("</main>"), `${r.path}'s slot sits inside the main content`)
+  check("JP8", text.includes('<script src="https://ads.japode.com/v1/ads.js" async></script>'), `${r.path} does not load the Japode Ads loader`)
+}
+
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.
 const sources = walk(join(REPO, "src")).filter((f) => /\.(css|tsx)$/.test(f) && f !== join(REPO, "src", "tone.css"))

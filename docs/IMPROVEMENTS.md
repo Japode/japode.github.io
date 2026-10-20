@@ -18,13 +18,6 @@ Here, PhotoBoost has its card and its page. There, the header or footer of Photo
 site gets the Japode mark linking to the root. The change on PhotoBoost's side is a task
 in its own roadmap (prefix PB), filed there only; Alexandre decides when it lands.
 
-### §JP8 The banner slot
-
-A slot with the ads.japode.com loader, as on the other sites. The loader adds
-`utm_source=japode-ads` to the destination, so the advertised product's GA records the
-source. The banner sits outside the main content and waits for consent if the loader
-sets a cookie.
-
 ### §JP9 The catalogue as JSON
 
 The build writes `dist/products.json` from `src/data/products.ts`, like alegauss's
