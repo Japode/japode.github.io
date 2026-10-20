@@ -8,8 +8,7 @@
 
 ## Block C — Everything under japode.com
 
-- 📋 **JP11** (deps: JP2 ✅) **japode.com does not point at the organization's GitHub Pages site** — The domain was decided on 2026-10-20, and until DNS changes the site lives only at japode.github.io. → §JP11
-- 📋 **JP12** (deps: JP11) **PhotoBoost's site still declares japode.github.io as its origin** — Canonical links and a sitemap on the old address split indexing across two domains. → §JP12
+- 📋 **JP12** (deps: JP11 ⏸) **PhotoBoost's site still declares japode.github.io as its origin** — Canonical links and a sitemap on the old address split indexing across two domains. → §JP12
 - 📋 **JP13** (deps: JP2 ✅) **nothing stops the site from taking the paths the verticals' engine will use** — The strategy reserves japode.com/v/<id> for dated answers; a route there now would break those links later. → §JP13
 - 💭 **JP14** (deps: JP3 ✅, 08 Editais live) **once the first vertical (Editais) ships, the site has nowhere to present it** — The storefront should show the engine when a real vertical exists, and never before. → §JP14
 

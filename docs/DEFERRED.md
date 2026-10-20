@@ -7,3 +7,5 @@
 ## Block B — Tied to the rest of the house
 
 ## Block C — Everything under japode.com
+
+- ⏸ **JP11** (deps: JP2 ✅) **japode.com does not point at the organization's GitHub Pages site** — set aside (Waits on Alexandre setting the japode.com DNS records and HTTPS; the CNAME shipped in JP2.): The domain was decided on 2026-10-20, and until DNS changes the site lives only at japode.github.io. → §JP11
