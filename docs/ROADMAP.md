@@ -4,7 +4,7 @@
 
 ## Block B — Tied to the rest of the house
 
-- 📋 **JP7** (deps: JP3 ✅) **PhotoBoost's site and the brand's site do not link to each other** — Someone arriving through PhotoBoost should find the other products, and someone arriving through the brand should find PhotoBoost. → §JP7
+- ⏳ **JP7** (deps: JP3 ✅, PB49 in photo-boost) **PhotoBoost's site and the brand's site do not link to each other** — PhotoBoost's site links back to the storefront once PB49 lands in its repository. → §JP7
 - 📋 **JP8** (deps: JP2 ✅) **the site does not show the Japode Ads banner the way the other house sites do** — A product storefront is the natural place for the banner that leads from one house product to another. → §JP8
 - 📋 **JP9** (deps: JP3 ✅) **Japode's catalogue exists only inside the HTML, so no other site can read it** — A public `products.json` lets alegauss, Japode Ads and the products' footers list the family without copying it. → §JP9
 - 📋 **JP10** (deps: JP1 ✅) **the site does not say Japode's products are built on Viglet** — Showing Viglet as the foundation ties the two brands together and sends visitors to Turing, the long-term bet. → §JP10
@@ -21,6 +21,12 @@
 - **GA4 and Search Console report japode.com to the visibility collection**
   SITE.analytics holds the GA4 id, verify.mjs passes with it set, and the visibility
   service account reads both the GA4 property and sc-domain:japode.com.
+
+## Done when — JP7
+
+- **PhotoBoost's site links back to the Japode storefront** The built /photo-boost/
+  pages carry a link to the origin root with the Japode name, from PB49 in PhotoBoost's
+  repository.
 
 ## Non-goals
 
