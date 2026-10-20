@@ -2,16 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-### §JP2 Deploying through GitHub Actions
-
-The same `deploy.yml` as alegauss: it runs on push to main and by hand, runs `npm run
-build` and publishes `dist/` with `upload-pages-artifact` and `deploy-pages`.
-`public/CNAME` carries `japode.com` (the domain itself is block C). This is the
-organization site (`Japode/japode.github.io`), so project sites such as PhotoBoost's
-stay at `/<repo>/` and the build must write nothing at those paths: `verify.mjs` refuses
-any file under `dist/photo-boost/`. Turning on Pages from Actions in the repository
-settings is Alexandre's step.
-
 ### §JP3 The catalogue in code
 
 `src/data/products.ts` is the list, like alegauss's `projects.ts`: id, name, one
