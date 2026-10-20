@@ -86,6 +86,27 @@ for (const p of PRODUCTS) {
   check("JP4", p.status === "offline" ? !links : links, p.status === "offline" ? `${path} links an offline address` : `${path} does not link ${p.site}`)
 }
 
+// JP5 — every route has an OG card it points at and a Markdown twin; every indexed one
+// is in the sitemap and llms.txt, and the 404 is in neither. robots.txt names this
+// sitemap and each project site's, since crawlers read robots.txt at the root only.
+const sitemap = read("sitemap.xml")
+const llms = read("llms.txt")
+const robots = read("robots.txt")
+for (const r of ROUTES) {
+  const slug = app.outputDir(r.path).replaceAll("/", "-") || "home"
+  check("JP5", existsSync(join(DIST, "og", `${slug}.png`)), `no OG card for ${r.path}`)
+  check("JP5", page(r.path).includes(`og:image" content="${SITE.origin}/og/${slug}.png"`), `${r.path} does not point at its OG card`)
+  check("JP5", existsSync(join(DIST, app.outputDir(r.path), "index.md")), `${r.path} has no Markdown twin`)
+  check("JP5", sitemap.includes(`<loc>${SITE.origin}${r.path}</loc>`) === r.index, r.index ? `the sitemap lacks ${r.path}` : `the sitemap lists ${r.path}`)
+  check("JP5", llms.includes(`${SITE.origin}${r.path}index.md`) === r.index, r.index ? `llms.txt lacks ${r.path}` : `llms.txt lists ${r.path}`)
+}
+check("JP5", robots.includes(`Sitemap: ${SITE.origin}/sitemap.xml`), "robots.txt does not name the sitemap")
+for (const s of app.localSites()) {
+  check("JP5", robots.includes(`Sitemap: ${SITE.origin}${s}sitemap.xml`), `robots.txt does not name ${s}sitemap.xml`)
+  check("JP5", !sitemap.includes(`<loc>${SITE.origin}${s}`), `the sitemap lists ${s}, which publishes its own`)
+}
+for (const p of PRODUCTS) check("JP5", llms.includes(p.blurb), `llms.txt lacks ${p.name}`)
+
 // JP1 — no colour or radius in src/ is declared outside the design system, except
 // src/tone.css: the green tone the design system does not ship.
 const sources = walk(join(REPO, "src")).filter((f) => /\.(css|tsx)$/.test(f) && f !== join(REPO, "src", "tone.css"))

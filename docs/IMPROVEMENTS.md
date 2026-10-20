@@ -2,12 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-### §JP5 The files for machines
-
-Like AG6 in alegauss: the design system's `prerenderSite` writes, for each route, the
-HTML, a Markdown twin and an OG card, then `sitemap.xml`, `robots.txt` and `llms.txt`.
-The sitemap lists only this repository's routes; PhotoBoost publishes its own.
-
 ### §JP6 GA4 behind consent, and Search Console
 
 GA4 loads only after consent, with a banner the footer reopens (AG1 in alegauss).

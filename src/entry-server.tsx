@@ -4,6 +4,7 @@ import { ROUTES, routeFor } from "./routes.tsx"
 import { absolute } from "./data/site.ts"
 
 export { ROUTES } from "./routes.tsx"
+export { twin, llmsTxt, localSites } from "./twin.ts"
 export { SITE } from "./data/site.ts"
 export { PRODUCTS, STATUS_LABEL, productPath } from "./data/products.ts"
 
