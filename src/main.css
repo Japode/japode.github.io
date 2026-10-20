@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "@viglet/viglet-design-system/preset";
+@import "@viglet/viglet-design-system/fonts";
+@import "@viglet/viglet-design-system/site.css";
+@import "./tone.css";
+
+/* The site's own pieces, on the design system's tokens only: no colour and no radius
+   is declared here (tone.css holds the ground). */
+
+@layer components {
+  .jp-skip {
+    position: absolute;
+    left: -9999px;
+  }
+  .jp-skip:focus {
+    left: 16px;
+    top: 12px;
+    z-index: 100;
+    padding: 8px 14px;
+    border-radius: var(--vg-radius-control);
+    background: var(--vg-popover);
+  }
+}
+
+/* the mark is a circle: the hero frames its icon as a rounded square, whose shadow
+   would draw that square behind it. Outside the layer, to win over site.css. */
+.vg-site-hero-icon {
+  border-radius: 50%;
+}

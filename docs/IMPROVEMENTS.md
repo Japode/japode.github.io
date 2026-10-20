@@ -2,17 +2,6 @@
 
 ## Block A — A storefront search engines can read
 
-### §JP1 A storefront on the alegauss pattern
-
-Reuse the base of alegauss.github.io (AG2 and AG3): Vite 8, React 19, Tailwind 4 and
-`@viglet/viglet-design-system`, with the HTML prerendered at build by `vite build --ssr`
-and `scripts/prerender.mjs`. Only `dist/` is deployed. The canonical origin is
-`https://japode.com` from day one, so canonical links, the sitemap and OG cards are born
-on the final address. All copy is in English. The logo is the green V shaped like an
-arrow, copied from `marca/logo/japode.svg` in the visibility repository, which is its
-source; the favicon and the manifest come from it. Done when `npm run build` writes the
-home page as static HTML that reads without JavaScript.
-
 ### §JP2 Deploying through GitHub Actions
 
 The same `deploy.yml` as alegauss: it runs on push to main and by hand, runs `npm run

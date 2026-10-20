@@ -57,6 +57,11 @@ Validated means the project's own checks were run, not that the edit looked righ
 docs-only change has. Where a task adds a build or test step to this site, add it to this
 section in the same commit.
 
+A task that touches the site (anything outside `docs/`) also passes **`npm run build`**:
+`tsc --noEmit`, the client and SSR builds, `scripts/prerender.mjs`, then
+`scripts/verify.mjs`, which checks `dist/` against each shipped task's "done when" and
+names the task a failure belongs to. A task with a checkable outcome adds its check there.
+
 **Name EVERY task id an assertion holds, not just the one you are working.**
 
 ## ⛔ READ SECOND — four files are owned by `roadkeep`
