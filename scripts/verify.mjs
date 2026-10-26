@@ -50,13 +50,13 @@ check("JP1", !existsSync(join(DIST, "docs")) && !existsSync(join(DIST, "scripts"
 
 // JP2 — the deploy publishes only the build output, the domain file rides with it, and
 // nothing is built at the paths the organization's project sites own: GitHub serves
-// PhotoBoost at /photo-boost/, and a file here would shadow it.
+// each one at /<project>/, and a file here would shadow it.
 const workflow = readFileSync(join(REPO, ".github", "workflows", "deploy.yml"), "utf8")
 check("JP2", /path:\s*\.?\/?dist\b/.test(workflow), "deploy.yml does not upload dist/")
 check("JP2", /npm run build/.test(workflow), "deploy.yml does not run npm run build")
 check("JP2", existsSync(join(DIST, ".nojekyll")), ".nojekyll is not served")
 check("JP2", existsSync(join(DIST, "CNAME")) && read("CNAME").trim() === new URL(SITE.origin).host, `CNAME does not name ${new URL(SITE.origin).host}`)
-for (const project of ["photo-boost"]) check("JP2", !existsSync(join(DIST, project)), `dist/${project}/ would shadow that project's own site`)
+for (const s of app.localSites()) check("JP2", !existsSync(join(DIST, s)), `dist${s} would shadow that project's own site`)
 
 // JP3 — the home page HTML lists every product with its sentence, its status and its
 // mark; a product offline gets no link to an address that answers nothing, and none

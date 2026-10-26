@@ -50,8 +50,8 @@ const written = prerenderSite({
 // colour swapped for its green one (the dark ground in src/tone.css).
 const GREEN = { "#15100c": "#0b140f", "#f4ece4": "#e4f3ea", "#b6a596": "#8fae9a", "#d97757": "#2bcb6b", "#e9a33a": "#a7f3c4" }
 const green = (svg) => svg.replace(/#[0-9a-f]{6}\b/gi, (c) => GREEN[c.toLowerCase()] ?? c)
-// Only the frame is recoloured: PhotoBoost's mark is drawn in those same warm colours and
-// must keep them. So the card is drawn around an empty slot with the mark's viewBox, and
+// Only the frame is recoloured: a product's mark may be drawn in those same warm colours
+// and must keep them. So the card is drawn around an empty slot with the mark's viewBox, and
 // the mark's own content goes into the slot after the swap.
 const SLOT = '<g id="jp-mark-slot"/>'
 function card(route) {

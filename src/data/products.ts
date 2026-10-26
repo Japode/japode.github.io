@@ -34,16 +34,6 @@ export const STATUS_LABEL: Record<Status, string> = {
 
 export const PRODUCTS: Product[] = [
   {
-    id: "photo-boost",
-    name: "PhotoBoost",
-    kind: "Windows app",
-    blurb: "Upscales, denoises and restores your photos with AI on your own Windows PC: no cloud, no account, nothing uploaded.",
-    site: "/photo-boost/",
-    logo: "/products/photo-boost.svg",
-    status: "in-development",
-    schema: { type: "SoftwareApplication", os: "Windows", category: "MultimediaApplication" },
-  },
-  {
     id: "skillgist",
     name: "skillgist",
     kind: "Web service",
